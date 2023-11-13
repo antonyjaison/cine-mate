@@ -23,6 +23,9 @@ const ReviewCard = () => {
           States government.
         </Text>
       </View>
+      <View style={styles.line}>
+
+      </View>
     </View>
   );
 };
@@ -66,6 +69,11 @@ const styles = StyleSheet.create({
     fontSize: 7,
     color: "#fff",
   },
+  line:{
+    width:"100%",
+    height:1,
+    backgroundColor:"#4E5860"
+  }
 });
 
 export default ReviewCard;

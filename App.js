@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
-import HomeScreen from "./screens/HomeScreen";
+import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import SearchScreen from "./screens/SearchScreen";
-import WatchListScreen from "./screens/WatchListScreen";
-import ProfileScreen from "./screens/ProfileScreen";
 import MovieDetailsScreen from "./screens/MovieDetailsScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+import BottomTabScreen from "./screens/BottomTabScreen";
+import WatchListScreen from "./screens/WatchListScreen";
+import CastScreen from "./CastScreen";
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,23 +24,21 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer>
-        <StatusBar barStyle="light-content" animated={true} />
-        <Tab.Navigator
+        <StatusBar
+          backgroundColor="#000"
+          barStyle="light-content"
+          animated={true}
+        />
+        <Stack.Navigator
+          // initialRouteName="castDetails"
           screenOptions={{
             headerShown: false,
-            tabBarActiveTintColor: "#E21221",
-            tabBarInactiveTintColor: "#FFFFFF",
-            tabBarStyle: {
-              backgroundColor: "#181818",
-              borderTopWidth: 0,
-            },
           }}
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Search" component={MovieDetailsScreen} />
-          <Tab.Screen name="Watchlist" component={WatchListScreen} />
-          <Tab.Screen name="Profile" component={ProfileScreen} />
-        </Tab.Navigator>
+          <Stack.Screen name="home" component={BottomTabScreen} />
+          <Stack.Screen name="movieDetails" component={MovieDetailsScreen} />
+          <Stack.Screen name="castDetails" component={CastScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
   );
@@ -50,5 +47,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  tabButtonWrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    fontFamily: "Poppins-Bold",
+    fontSize: 8,
   },
 });

@@ -12,7 +12,6 @@ import PlayButton from "./Buttons/PlayButton";
 import WatchlistButton from "./Buttons/WatchlistButton";
 import MovieTitle from "./Titles/MovieTitle";
 import Genre from "./Titles/Genre";
-import imdbImg from "../assets/images/imdb.png";
 import Header from "./Header";
 
 const HomeBanner = () => {
@@ -27,7 +26,7 @@ const HomeBanner = () => {
           style={[styles.bannerImg, { height: bannerImgHeight }]}
           source={bannerImg}
         >
-          <Header />
+          {/* <Header /> */}
           <View
             style={[styles.bannerDetails, { paddingHorizontal: paddingHor }]}
           >

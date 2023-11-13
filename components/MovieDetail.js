@@ -15,6 +15,7 @@ import Description from "./Description";
 import MovieData from "./Titles/MovieData";
 import WatchlistButton from "./Buttons/WatchlistButton";
 import ImdbCard from "./Cards/ImdbCard";
+import GoBackButton from "./Buttons/GoBackButton";
 
 const MovieDetail = () => {
   const { width, height } = useWindowDimensions();
@@ -34,54 +35,60 @@ const MovieDetail = () => {
   const text =
     "Dom encounters a mysterious woman, Cipher, who gets him involved in the world of terrorism. The crew has to reunite to Dom encounters a mysterious woman, Cipher, who gets him involved in the world of terrorism. The crew has to reunite to";
 
-
   return (
-    <View style={[styles.container]}>
-      <Image
-        blurRadius={3}
-        style={[styles.bannerImage, { height: bannerHeight }]}
-        source={BgImg}
-      />
-      <LinearGradient
-        colors={["transparent", "rgba(24, 24, 24,1)"]}
-        style={[styles.gradientContainer, { height: bannerHeight }]}
-      >
-        <View>
-          <View
-            style={[styles.posterContainer, { height: posterContainerHeight }]}
-          >
-            <Image
-              source={banner}
+    <>
+      <View style={[styles.container]}>
+        <Image
+          blurRadius={3}
+          style={[styles.bannerImage, { height: bannerHeight }]}
+          source={BgImg}
+        />
+        <GoBackButton />
+        <LinearGradient
+          colors={["transparent", "rgba(24, 24, 24,1)"]}
+          style={[styles.gradientContainer, { height: bannerHeight }]}
+        >
+          <View>
+            <View
               style={[
-                styles.poster,
-                { width: posterWidth, height: posterHeight },
+                styles.posterContainer,
+                { height: posterContainerHeight },
               ]}
-            />
-            <PlayButton/>
-          </View>
-          <View style={[{ paddingHorizontal: paddingHor, gap: movieDataGap2 }]}>
-            <MovieTitle
-              title="Guardians of the Galaxy"
-              style={styles.movieTitle}
-            />
-            <Description text={text} />
-
-            <View style={[styles.movieData, { gap: movieDataGap }]}>
-              <MovieData p="Year" value="2014" />
-              <MovieData p="CBFC" value="U/A" />
-              <MovieData p="Dur" value="2h 2m" />
+            >
+              <Image
+                source={banner}
+                style={[
+                  styles.poster,
+                  { width: posterWidth, height: posterHeight },
+                ]}
+              />
+              <PlayButton />
             </View>
+            <View
+              style={[{ paddingHorizontal: paddingHor, gap: movieDataGap2 }]}
+            >
+              <MovieTitle
+                title="Guardians of the Galaxy"
+                style={styles.movieTitle}
+              />
+              <Description text={text} />
 
-            <View style={styles.genreWrapper}>
-              <Text style={styles.genres}>Action,Sci-Fi,Family</Text>
-              <ImdbCard />
-              <WatchlistButton />
+              <View style={[styles.movieData, { gap: movieDataGap }]}>
+                <MovieData p="Year" value="2014" />
+                <MovieData p="CBFC" value="U/A" />
+                <MovieData p="Dur" value="2h 2m" />
+              </View>
+
+              <View style={styles.genreWrapper}>
+                <Text style={styles.genres}>Action,Sci-Fi,Family</Text>
+                <ImdbCard />
+                <WatchlistButton />
+              </View>
             </View>
           </View>
-        </View>
-      </LinearGradient>
-
-    </View>
+        </LinearGradient>
+      </View>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { View, Text ,StyleSheet} from 'react-native'
 import React from 'react'
 
-const CategoryTitle = ({ title }) => {
+const CategoryTitle = ({ title}) => {
   return (
     <View>
       <Text style={styles.title}>{title}</Text>

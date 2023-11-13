@@ -1,13 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 import TrailerCard from "./Cards/TrailerCard";
-import { ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
 import MoreButton from "./Buttons/MoreButton";
 
 const TrailerSection = () => {
   return (
-    <ScrollView>
+    <View>
       <View style={styles.card}>
         <TrailerCard />
       </View>
@@ -23,14 +22,23 @@ const TrailerSection = () => {
       <View style={styles.card}>
         <TrailerCard />
       </View>
-      <MoreButton/>
-    </ScrollView>
+      <View style={styles.buttonWrapper}>
+        <MoreButton/>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
     marginTop: 16,
+  },
+  buttonWrapper: {
+    width: "100%",
+    height: 50,
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
   },
 });
 

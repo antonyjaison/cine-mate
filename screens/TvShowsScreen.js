@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "../constants/colors";
 import BigMovieCard from "../components/Cards/BigMovieCard";
 
-const WatchListScreen = () => {
+const TvShowsScreen = () => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const { width, height } = useWindowDimensions();
   const paddingHorizontal = (4 / 100) * width;
@@ -26,7 +26,7 @@ const WatchListScreen = () => {
       ]}
     >
       <View style={styles.titleWrapper}>
-        <Text style={styles.text}>My List</Text>
+        <Text style={styles.text}>TV Shows</Text>
       </View>
 
       <FlatList
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WatchListScreen;
+export default TvShowsScreen;

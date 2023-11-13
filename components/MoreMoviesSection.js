@@ -1,12 +1,55 @@
-import { Text } from "react-native";
-import React from "react";
+import { View, Text, useWindowDimensions, FlatList } from "react-native";
+import { StyleSheet } from "react-native";
+import { colors } from "../constants/colors";
+import BigMovieCard from "../components/Cards/BigMovieCard";
 
-const MoreMoviesSection = () => {
+const MoreMovieSection = () => {
+  const data = [1, 2, 3, 4, 5, 6];
+  const { width, height } = useWindowDimensions();
+  const paddingBottom = (1 / 100) * height;
+  const renderItem = () => {
+    return (
+      <View>
+        <BigMovieCard />
+      </View>
+    );
+  };
   return (
-    <>
-      <Text>hello</Text>
-    </>
+    <View
+      style={[
+        styles.watchlistWrapper,
+        {
+          backgroundColor: colors.background,
+        },
+      ]}
+    >
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        data={data}
+        keyExtractor={(d) => d}
+        renderItem={renderItem}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: paddingBottom }}
+        columnWrapperStyle={{ justifyContent: "space-between", marginTop: 8 }}
+      />
+    </View>
   );
 };
 
-export default MoreMoviesSection;
+const styles = StyleSheet.create({
+  watchlistWrapper: {
+    flex: 1,
+  },
+  titleWrapper: {
+    marginTop: 13,
+    marginBottom: 5,
+  },
+  text: {
+    color: "#fff",
+    fontSize: 26,
+    fontWeight: "normal",
+    fontFamily: "Poppins-Regular",
+  },
+});
+
+export default MoreMovieSection;

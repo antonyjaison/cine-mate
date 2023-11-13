@@ -23,7 +23,9 @@ const ReviewSection = () => {
       <View style={styles.card}>
         <ReviewCard />
       </View>
-      <MoreButton />
+      <View style={styles.buttonWrapper}>
+        <MoreButton />
+      </View>
     </View>
   );
 };
@@ -31,6 +33,13 @@ const ReviewSection = () => {
 const styles = StyleSheet.create({
   card: {
     marginTop: 25,
+  },
+  buttonWrapper: {
+    width: "100%",
+    height: 50,
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
   },
 });
 
